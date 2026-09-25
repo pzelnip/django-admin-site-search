@@ -233,10 +233,10 @@ the admin's URL patterns ever change.
 Any section just needs to match the app→model→object shape the frontend already
 renders, so it's indistinguishable from a "real" search result.
 
-`results.html` renders an optional `suffix` on app, model, and object rows when
-one is present, falling back to the default `- app` / `- model` labels when it's
-omitted - so custom sections can label themselves (`"shortcut"`, `"3 matches"`,
-etc.) without fighting the built-in styling.
+`results.html` renders an optional `suffix` on app, model, and object rows, and
+shows no label when it's omitted or empty - so custom sections can label
+themselves (`"shortcut"`, `"3 matches"`, etc.) without fighting the built-in
+styling. Built-in app and model rows get `- app` / `- model` by default.
 
 You can also inject markup around the search box itself - e.g. tips, filters, a
 "recent searches" list - by overriding the empty
@@ -258,9 +258,6 @@ types `?`:
     </dl>
 </template>
 ```
-
-> These two hooks (result `suffix`es and `modal_before_results.html`) ship
-> together as part of the same change, so they land in the same release.
 
 ## Screenshots
 <img src="https://raw.githubusercontent.com/ahmedaljawahiry/django-admin-site-search/main/images/desktop-light-open.png" width="100%" alt="Desktop, light theme, modal open" />
