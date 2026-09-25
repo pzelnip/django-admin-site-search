@@ -175,6 +175,25 @@ class MyAdminSite(AdminSiteSearchView, admin.AdminSite):
 Note that this isn't done by default for performance reasons: `__icontains` on a 
 large number of text entries is suboptimal.
 
+#### 3. Restyle or hide the header button.
+
+The button is styled purely with CSS, so it can be changed by loading your own stylesheet
+after the package's. Its parts carry the classes `search-button` (the button),
+`search-button-label` (the "Quick search..." text) and `search-button-hint` (the
+keyboard shortcut).
+
+```css
+/* Compact: icon and shortcut only */
+.search-button-label {
+    display: none;
+}
+
+/* Hidden: search stays available via the Cmd/Ctrl + K shortcut */
+.search-button {
+    display: none;
+}
+```
+
 
 ## Screenshots
 <img src="https://raw.githubusercontent.com/ahmedaljawahiry/django-admin-site-search/main/images/desktop-light-open.png" width="100%" alt="Desktop, light theme, modal open" />
